@@ -13,6 +13,6 @@ app = FastAPI(
 app.include_router(ping.router)
 
 # Rota raiz para evitar 404 no "/"
-@app.get("/")
+@app.get("/", methods=["GET", "HEAD"])
 def root():
     return {"message": "Nuxo Bot API online 🚀"}
