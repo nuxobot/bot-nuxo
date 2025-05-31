@@ -13,5 +13,5 @@ DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 PORT = int(os.getenv("PORT", "8000"))
 
 # Configurações do WhatsApp (serão adicionadas posteriormente)
-WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY", "")
-WHATSAPP_API_URL = os.getenv("WHATSAPP_API_URL", "")
+# WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY", "")
+# WHATSAPP_API_URL = os.getenv("WHATSAPP_API_URL", "")

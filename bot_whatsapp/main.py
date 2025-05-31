@@ -21,5 +21,6 @@ if __name__ == "__main__":
         "main:app",
         host="0.0.0.0",
         port=PORT,
-        reload=DEBUG
+        reload=DEBUG,
+        workers=1
     )
