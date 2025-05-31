@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from config import APP_NAME, DEBUG, PORT
+from app.endpoints.ping import router as ping_router
 
 # Inicializa a aplicação FastAPI
 app = FastAPI(
@@ -23,10 +24,8 @@ async def root():
         }
     }
 
-# Endpoint de ping para verificar se a API está funcionando
-@app.get("/ping")
-async def ping():
-    return {"message": "pong", "status": "online"}
+# Inclui o router do endpoint /ping
+app.include_router(ping_router)
 
 # Executa o servidor se este arquivo for executado diretamente
 if __name__ == "__main__":
