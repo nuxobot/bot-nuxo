@@ -10,6 +10,19 @@ app = FastAPI(
     debug=DEBUG
 )
 
+# Endpoint raiz
+@app.get("/")
+async def root():
+    return {
+        "message": "Bem-vindo à API do Nuxo Bot",
+        "status": "online",
+        "endpoints": {
+            "root": "/",
+            "ping": "/ping",
+            "docs": "/docs"
+        }
+    }
+
 # Endpoint de ping para verificar se a API está funcionando
 @app.get("/ping")
 async def ping():
