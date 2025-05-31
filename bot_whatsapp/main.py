@@ -12,7 +12,7 @@ app = FastAPI(
 )
 
 # Endpoint raiz
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return {
         "message": "Bem-vindo à API do Nuxo Bot",
