@@ -1,14 +1,16 @@
 from fastapi import FastAPI
-import uvicorn
+from app.endpoints import ping
 
-# Inicializa a aplicação FastAPI
-app = FastAPI()
+app = FastAPI(
+    title="Nuxo Bot API",
+    description="API do Assistente Financeiro via WhatsApp",
+    version="1.0.0"
+)
 
-# Endpoint de ping para verificar se a API está funcionando
-@app.get("/ping")
-async def ping():
-    return {"message": "ping"}
+# Endpoint raiz ("/") para checagem básica de status
+@app.api_route("/", methods=["GET", "HEAD"])
+def root():
+    return {"message": "Nuxo Bot API online 🚀"}
 
-# Executa o servidor se este arquivo for executado diretamente
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+# Inclui os endpoints adicionais
+app.include_router(ping.router)
