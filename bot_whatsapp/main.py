@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 import uvicorn
+from dotenv import load_dotenv
 from .infrastructure.whatsapp.webhook import router
+
+load_dotenv()
 
 app = FastAPI()
 
